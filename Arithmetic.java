@@ -270,7 +270,7 @@ public class Arithmetic {
 			c = arg.charAt(i);
 			if (c != '0' && c != '1' && c != '2' && c != '3' &&
 			    c != '4' && c != '5' && c != '6' && c != '7' &&
-			    c != '8' && c != '9' && c != '.') return false;
+			    c != '8' && c != '9' && c != '.' && c != '-') return false;
 		}
 		// check for a decimal point with nothing after it:
 		if (arg.charAt(len-1) == '.') return false;
@@ -281,6 +281,10 @@ public class Arithmetic {
 				if (arg.charAt(i) == '.') return false;
 			if (arg.charAt(i) == '.')
 				dPoint = true;
+		}
+		//check for improperly placed '-'
+		for (int i=len-1; i>=0; i--) {
+			if (arg.charAt(i) == '-' && i!=0) return false;
 		}
 		return true;
 	}

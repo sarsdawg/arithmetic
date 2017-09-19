@@ -84,6 +84,10 @@ public class TestUnit {
 		System.out.print("The result is: ");
 		System.out.println(Arithmetic.subtract((byte)2, "11100", "1010")); 
 		System.out.println(); 
+		System.out.println("Test 5-10 in decimal.  The result should be -10.");
+		System.out.print("The result is: ");
+		System.out.println(Arithmetic.subtract((byte)10, "5", "10")); 
+		System.out.println(); 
 		
 		// Test the floatSubtract method.
 		System.out.println(); 
@@ -92,6 +96,10 @@ public class TestUnit {
 		System.out.println("Test 6829.1023 - 345.310.  The result should be 6483.7923.");
 		System.out.print("The result is: ");
 		System.out.println(Arithmetic.floatSubtract("6829.1023", "345.310")); 
+		System.out.println(); 
+		System.out.println("Test -50.2 - 23.35.  The result should be -73.55.");
+		System.out.print("The result is: ");
+		System.out.println(Arithmetic.floatSubtract("-50.2", "23.35")); 
 		System.out.println(); 
 		
 		// Test the multiply method.
