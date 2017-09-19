@@ -9,37 +9,37 @@ public class TestUnit {
 		// Test binary to octal.
 		System.out.println("Test the conversion of the binary number 11001 to octal.  The result should be 31.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.convert((byte)2, (byte)8, "11001"));
+		System.out.println(Arithmetic.convert(2, 8, "11001"));
 		System.out.println();
 		// Test octal to hex.
 		System.out.println("Test the conversion of the octal number 34646 to hexadecimal.  The result should be 39A6.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.convert((byte)8, (byte)16, "34646"));
+		System.out.println(Arithmetic.convert(8, 16, "34646"));
 		System.out.println();
 		// Test hex to binary.
 		System.out.println("Test the conversion of the hexadecimal number 1AF to binary.  The result should be 110101111.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.convert((byte)16, (byte)2, "1AF"));
+		System.out.println(Arithmetic.convert(16, 2, "1AF"));
 		System.out.println();
 		// Test bad inBase
 		System.out.println("Test the input of a bad input base 3.  The result should be an error.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.convert((byte)3, (byte)16, "34646"));
+		System.out.println(Arithmetic.convert(3, 16, "34646"));
 		System.out.println();
 		// Test bad outBase
 		System.out.println("Test the input of a bad output base 17.  The result should be an error.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.convert((byte)8, (byte)17, "34646"));
+		System.out.println(Arithmetic.convert(8, 17, "34646"));
 		System.out.println();
 		// Test base, number mismatch
 		System.out.println("Test a mismatched base 2 and number 1AF.  The result should be an error.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.convert((byte)2, (byte)16, "1AF"));
+		System.out.println(Arithmetic.convert(2, 16, "1AF"));
 		System.out.println();
 		// Test bad number input
 		System.out.println("Test a bad number of 7ZG.  The result should be an error.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.convert((byte)16, (byte)2, "7ZG"));
+		System.out.println(Arithmetic.convert(16, 2, "7ZG"));
 		System.out.println();
 		
 		// Test the add method.
@@ -49,22 +49,22 @@ public class TestUnit {
 		// Test binary + binary.
 		System.out.println("Test the binary addition of 110 and 101.  The result should be 1011.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.add((byte)2, "110", "101")); 
+		System.out.println(Arithmetic.add(2, "110", "101")); 
 		System.out.println(); 
 		// Test octal + octal.
 		System.out.println("Test the octal addition of 52 and 71.  The result should be 143.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.add((byte)8, "52", "71")); 
+		System.out.println(Arithmetic.add(8, "52", "71")); 
 		System.out.println(); 
 		// Test decimal + decimal.
 		System.out.println("Test the decimal addition of 159 and 23.  The result should be 182.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.add((byte)10, "159", "23")); 
+		System.out.println(Arithmetic.add(10, "159", "23")); 
 		System.out.println(); 
 		// Test hex + hex.
 		System.out.println("Test the hexadecimal addition of 1F and 2AD.  The result should be 2CC.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.add((byte)16, "1F", "2AD")); 
+		System.out.println(Arithmetic.add(16, "1F", "2AD")); 
 		System.out.println(); 
 		
 		// Test the floatAdd method.
@@ -82,11 +82,7 @@ public class TestUnit {
 		System.out.println();
 		System.out.println("Test 11100 - 1010 in binary.  The result should be 10010.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.subtract((byte)2, "11100", "1010")); 
-		System.out.println(); 
-		System.out.println("Test 5-10 in decimal.  The result should be -10.");
-		System.out.print("The result is: ");
-		System.out.println(Arithmetic.subtract((byte)10, "5", "10")); 
+		System.out.println(Arithmetic.subtract(2, "11100", "1010")); 
 		System.out.println(); 
 		
 		// Test the floatSubtract method.
@@ -108,7 +104,7 @@ public class TestUnit {
 		System.out.println();
 		System.out.println("Test 77 multiplied by 32 in octal.  The result should be 3146.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.multiply((byte)8, "77", "32")); 
+		System.out.println(Arithmetic.multiply(8, "77", "32")); 
 		System.out.println();
 		
 		// Test the floatMultiply method.
@@ -126,11 +122,11 @@ public class TestUnit {
 		System.out.println();
 		System.out.println("Test 100 divided by 20 in decimal.  The result should be 5.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.divide((byte)10, "100", "20")); 
+		System.out.println(Arithmetic.divide(10, "100", "20")); 
 		System.out.println();
 		System.out.println("Test 100 divided by 21 in decimal.  The result should be 4.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.divide((byte)10, "100", "21")); 
+		System.out.println(Arithmetic.divide(10, "100", "21")); 
 		System.out.println();
 		
 		// Test the floatDivide method.
@@ -148,11 +144,11 @@ public class TestUnit {
 		System.out.println();
 		System.out.println("Test the square root of 190 in hexadecimal.  The result should be 14.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.squareRoot((byte)16, "190")); 
+		System.out.println(Arithmetic.squareRoot(16, "190")); 
 		System.out.println();
 		System.out.println("Test the square root of 1F4 in hexadecimal.  The result should be 16.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.squareRoot((byte)16, "1F4")); 
+		System.out.println(Arithmetic.squareRoot(16, "1F4")); 
 		System.out.println();
 		
 		// Test the floatSquareRoot method.
@@ -170,7 +166,7 @@ public class TestUnit {
 		System.out.println();
 		System.out.println("Test 1001 raised to the 11 power in binary.  The result should be 1011011001.");
 		System.out.print("The result is: ");
-		System.out.println(Arithmetic.exponent((byte)2, "1001", "11")); 
+		System.out.println(Arithmetic.exponent(2, "1001", "11")); 
 		System.out.println();
 		
 		// Test the floatExponent method.

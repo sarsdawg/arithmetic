@@ -4,7 +4,7 @@ import java.util.List;
 public class Arithmetic {
 	
 	// Converts from one base to another.
-	public static String convert(byte inBase, byte outBase, String arg) {
+	public static String convert(int inBase, int outBase, String arg) {
 		if (!baseCheck(inBase) || !baseCheck(outBase) || !argCheck(inBase, arg)) {
 			return "Error.  There was a problem with the given input base, output base, "
 					+ "and/or number to convert.  Please use one of the following values "
@@ -19,7 +19,7 @@ public class Arithmetic {
 	/* Adds two whole binary, octal, decimal, or hexadecimal numbers of a common base, 
 	 * and returns a result in the same base as a string.
 	 */
-	public static String add(byte base, String arg1, String arg2) {
+	public static String add(int base, String arg1, String arg2) {
 		if (!baseCheck(base) || !argCheck(base, arg1) || !argCheck(base, arg2)) {
 			return "Error.  There was a problem with the given given base and/or numbers "
 					+ "to add.  Please use one of the following values as a base: 2, 8, "
@@ -53,7 +53,7 @@ public class Arithmetic {
 	/* Subtracts two whole binary, octal, decimal, or hexadecimal numbers of a common 
 	 * base, and returns a result in the same base as a string.
 	 */
-	public static String subtract(byte base, String arg1, String arg2) {
+	public static String subtract(int base, String arg1, String arg2) {
 		if (!baseCheck(base) || !argCheck(base, arg1) || !argCheck(base, arg2)) {
 			return "Error.  There was a problem with the given given base and/or numbers "
 					+ "to subtract.  Please use one of the following values as a base: 2, "
@@ -87,7 +87,7 @@ public class Arithmetic {
 	/* Multiplies two whole binary, octal, decimal, or hexadecimal numbers of a common 
 	 * base, and returns a result in the same base as a string.
 	 */
-	public static String multiply(byte base, String arg1, String arg2) {
+	public static String multiply(int base, String arg1, String arg2) {
 		if (!baseCheck(base) || !argCheck(base, arg1) || !argCheck(base, arg2)) {
 			return "Error.  There was a problem with the given given base and/or numbers "
 					+ "to multiply.  Please use one of the following values as a base: 2, "
@@ -122,7 +122,7 @@ public class Arithmetic {
 	 * and returns a result in the same base as a string.  Note that the result can only 
 	 * be a whole number.
 	 */
-	public static String divide(byte base, String arg1, String arg2) {
+	public static String divide(int base, String arg1, String arg2) {
 		if (!baseCheck(base) || !argCheck(base, arg1) || !argCheck(base, arg2)) {
 			return "Error.  There was a problem with the given given base and/or numbers to "
 					+ "divide.  Please use one of the following values as a base: 2, 8, 10, "
@@ -157,7 +157,7 @@ public class Arithmetic {
 	 * returns a result in the same base as a string.  Note that the result can only 
 	 * be a whole number.
 	 */
-	public static String squareRoot(byte base, String arg) {
+	public static String squareRoot(int base, String arg) {
 		if (!baseCheck(base) || !argCheck(base, arg)) {
 			return "Error.  There was a problem with the given given base and/or number to "
 					+ "find the square root of.  Please use one of the following values as "
@@ -189,7 +189,7 @@ public class Arithmetic {
 	/* Determines the exponential value of a binary, octal, decimal, or hexadecimal number 
 	 * raised to a power in the same base, and returns result in the same base as a string. 
 	 */
-	public static String exponent(byte base, String arg, String power) {
+	public static String exponent(int base, String arg, String power) {
 		if (!baseCheck(base) || !argCheck(base, arg) || !argCheck(base, power)) {
 			return "Error.  There was a problem with the given given base, number to find "
 					+ "the exponential value of, and/or the exponent.  Please use one of the "
@@ -223,13 +223,13 @@ public class Arithmetic {
 	}
 	
 	// Check base input to ensure binary(2), octal(8), decimal(10), or hexadecimal(16).
-	private static boolean baseCheck(byte base) {
+	private static boolean baseCheck(int base) {
 		if (base != 2 && base != 8 && base != 10 && base != 16) return false;
 		else return true;
 	}
 	
 	// Check string input to ensure that it parses as a the indicated base type.
-	private static boolean argCheck(byte base, String arg) {
+	private static boolean argCheck(int base, String arg) {
 		int len = arg.length();
 		char c;
 		for (int i=0; i<len; i++) {
@@ -290,13 +290,13 @@ public class Arithmetic {
 	}
 	
 	// Convert number of type binary, octal, decimal, or hexadecimal to decimal.
-	private static long convertToDecimal(byte base, String arg) {
+	private static long convertToDecimal(int base, String arg) {
 		long result = 0;
 		int len = arg.length();
 		int j = len-1;
-		byte jVal = 0;
+		int jVal = 0;
 		for (int i=0; i < len; i++) {
-			jVal = (byte)Character.getNumericValue(arg.charAt(j));				
+			jVal = Character.getNumericValue(arg.charAt(j));				
 			result = result + (int)(jVal*Math.pow(base,i));
 			j--;
 		}
@@ -304,18 +304,18 @@ public class Arithmetic {
 	}
 	
 	// Convert number of type decimal to binary, octal, decimal, or hexadecimal.
-	private static String convertFromDecimal(byte base, long arg) {
+	private static String convertFromDecimal(int base, long arg) {
 		List<Character> chars = new ArrayList<Character>(); 
-		byte mod = 0;
+		int mod = 0;
 		char modChar;
 		do {
-			mod = (byte)(arg % base);
+			mod = (int)(arg % base);
 			modChar = Character.forDigit(mod, base);
 			arg = arg / base;
 			chars.add(modChar);
 		} while (arg >= base);
 		if(arg>0) {
-			modChar = Character.forDigit((byte)arg, base);
+			modChar = Character.forDigit((int)arg, base);
 			chars.add(modChar);
 		}
 		// reverse character array:
