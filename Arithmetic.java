@@ -259,6 +259,8 @@ public class Arithmetic {
 					return false;
 			} 
 		} 
+		//check for a leading zero
+		if (len > 1 && arg.charAt(0) == '0') return false;
 		return true;
 	}
 	
@@ -282,10 +284,17 @@ public class Arithmetic {
 			if (arg.charAt(i) == '.')
 				dPoint = true;
 		}
+		//check for unaccompanied '.'
+		if (len == 1 && arg.charAt(0) == '.') return false;
 		//check for improperly placed '-'
-		for (int i=len-1; i>=0; i--) {
+		for (int i=len-1; i>=0; i--)
 			if (arg.charAt(i) == '-' && i!=0) return false;
-		}
+		//check for unaccompanied '-'
+		if (len == 1 && arg.charAt(0) == '-') return false;
+		//check for a leading zero
+		if ((len > 1 && arg.charAt(0) == '0' && arg.charAt(1) != '.') ||
+			(len > 1 && arg.charAt(0) == '-' && arg.charAt(1) == '0' && arg.charAt(2) != '.')) 
+			return false; 
 		return true;
 	}
 	
